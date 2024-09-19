@@ -1,8 +1,10 @@
 <h1>Inzeraty</h1>
 
+<h1><%= link_to "Pridat Inzerat", new_item_path%></h1>
+
 <% @items.each do |item| %>
   <h3><%= link_to item.name, item_path(item) %><br></h3>
-  
+
   <h3><%= link_to "Detail", item_path(item) %><br></h3>
   <%#= item_url(item) %><br>
   <%# <a href="<%= item_path(item) ">Odkaz</a> %>
