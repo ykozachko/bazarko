@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :items, only: %i[index show]
+
+  get 'top-inzerat/:id', to: 'items#show)'
+  # get 'filter/:status', to: 'items#show)'
 end

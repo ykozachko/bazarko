@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
   def index
-    # @greeting = "Ahojte vsetci!".upcase
     @items = Item.all
+  end
+
+  def show
+    @item = Item.find params[:id]
   end
 end
