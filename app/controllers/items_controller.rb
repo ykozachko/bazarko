@@ -12,18 +12,29 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(
+    # @item = Item.create(
 
-    name: params[:item][:name],
-    price: params[:item][:price]
-    )
+    # name: params[:item][:name],
+    # price: params[:item][:price]
+    # )
+    @item = Item.new item_attributes
 
-    redirect_to item_url(@item)
+    if @item.save
+      redirect_to item_url(@item)
+    else
+      render "new", status: :unprocessable_entity
+    end
   end
 
   def destroy
     @item = Item.find params[:id]
     @item.destroy
-    redirect_to items_url, notice: 'Item was successfully deleted.'
+    redirect_to items_url
+  end
+
+  private
+
+  def item_attributes
+    params.require(:item).permit(:name, :price)
   end
 end
