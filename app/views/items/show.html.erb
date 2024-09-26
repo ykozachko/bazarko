@@ -1,4 +1,4 @@
-<h1>detail einzeratu</h1>
+<h1>Detail Inzeratu</h1>
 
 <p>
   <%= link_to "Spat", items_path%>
@@ -7,4 +7,4 @@
 <%= @item.name %><br>
 <%= @item.price %><br>
 
-<%# <%= params[:action] %>
+<p><%= link_to "Delete", item_url(@item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>

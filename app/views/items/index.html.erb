@@ -3,13 +3,14 @@
 <h1><%= link_to "Pridat Inzerat", new_item_path%></h1>
 
 <% @items.each do |item| %>
-  <h3><%= link_to item.name, item_path(item) %><br></h3>
+  <h3><%= link_to item.name, item_path(item) %></h3>
 
-  <h3><%= link_to "Detail", item_path(item) %><br></h3>
-  <%#= item_url(item) %><br>
+  <%#= item_url(item) %>
   <%# <a href="<%= item_path(item) ">Odkaz</a> %>
 
   <%= item.price %><br>
   <%= item.phone %><br>
-  <hr>
+
+<p><%= link_to "Delete", item_url(item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+
 <% end %>
