@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :items, only: %i[index show new create destroy]
+  resources :items, only: %i[index show new create destroy edit update]
 
   get 'top-inzerat/:id', to: 'items#show'
   # get 'filter/:status', to: 'items#show)'
