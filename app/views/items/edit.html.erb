@@ -2,4 +2,5 @@
 
 <p> <%= link_to "Spat", items_path%></p>
 
-<%= render 'item_management', item: @item %>
+<%= render 'shared/errors', resource: @item %>
+<%= render 'form', item: @item %>
