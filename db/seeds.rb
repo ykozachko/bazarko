@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Category.where(name: 'Elektronika').first_or_create!
+Category.where(name: 'Nabytok').first_or_create!
+Category.where(name: 'Knihy').first_or_create!
+Category.where(name: 'Reality').first_or_create!
+Category.where(name: 'Sport').first_or_create!
+
+puts "Categories: count: #{Category.count}"
