@@ -1,0 +1,12 @@
+<h1>Category Details</h1>
+
+<p>
+  <%= link_to "Back", categories_path%>
+</p>
+
+<%= @category.name %><br>
+
+<br>
+<p><%= link_to "Edit", edit_category_url(@category)%></p>
+
+<p><%= link_to "Delete", category_url(@category), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
