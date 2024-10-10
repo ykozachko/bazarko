@@ -7,4 +7,15 @@ Category Details
 
 <p><%= link_to "Edit", edit_category_url(@category)%></p>
 
-<p><%= link_to "Delete", category_url(@category), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+<%= link_to "Delete", category_url(@category), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+
+
+<hr>
+
+<h2>Items</h2>
+
+<%# @category.items.each do |item| %>
+  <%#= render 'items/item', item: item %>
+<%# end %>
+
+<%= render @category.items %>
