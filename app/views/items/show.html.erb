@@ -1,13 +1,10 @@
-<h1>Detail Inzeratu</h1>
-
 <p>
-  <%= link_to "Spat", items_path%>
+  <%= link_to "Back", items_path%>
+Item Details
 </p>
 
 <% if @item.category.present? %>
-  <p>
     Kategoria: <%= @item.category.name %>
-  </p>
 <% end%>
 
 <br>
