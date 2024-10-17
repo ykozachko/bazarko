@@ -1,5 +1,49 @@
 @import "bootstrap";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: lightblue;
+  background-color: lightgray;
+}
+
+a {
+  color: yellow;
+  border-color: rgb(45, 45, 45);
+  border-width: 1cm;
+}
+
+.btn {
+  background-color: yellow;
+  color: rgb(45, 45, 45);
+  border-color: rgb(45, 45, 45);
+}
+
+div {
+  display: block;
+}
+
+.card {
+  background-color: rgba(184, 184, 184, 0.54);
+}
+
+.nav-link {
+  &:hover {
+    background-color: yellow;
+  }
+
+  &:active {
+    background-color: blue;
+    color: white;
+  }
+}
+
+input,
+select {
+  background-color: lightyellow;
+}
+
+.text-red {
+  color: red;
 }

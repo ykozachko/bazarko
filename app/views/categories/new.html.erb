@@ -1,6 +1,11 @@
-<h1>New Category</h1>
+<div class="card-header">
+  <div>
+    <p><%= link_to "Back", categories_path%></p>
+    <h2 class="cme-40">New ItCategoryem</h2>
+  </div>
+</div>
 
-<p> <%= link_to "Back", categories_path%></p>
-
-<%= render 'shared/errors', resource: @category %>
-<%= render 'form', category: @category %>
+<div class="card-body">
+  <%= render 'shared/errors', resource: @category %>
+  <%= render 'form', category: @category %>
+</div>

@@ -1,6 +1,11 @@
-<h1>Uprava inzeratu</h1>
+<div class="card-header">
+  <div>
+    <p><%= link_to "Back", item_path(@item) %></p>
+    <h2 class="cme-40">Edit Item</h2>
+  </div>
+</div>
 
-<p> <%= link_to "Spat", items_path%></p>
-
-<%= render 'shared/errors', resource: @item %>
-<%= render 'form', item: @item %>
+<div class="card-body">
+  <%= render 'shared/errors', resource: @item %>
+  <%= render 'form', item: @item %>
+</div>
