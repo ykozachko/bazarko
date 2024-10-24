@@ -11,7 +11,11 @@
   </head>
 
   <body class="container">
-    <%= render 'shared/navbar' %>
+    <% if controller.class.module_parent_name == "Admin" %>
+      <%= render 'shared/admin_navbar' %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
