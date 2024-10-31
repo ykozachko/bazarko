@@ -13,12 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # @item = Item.create(
-
-    # name: params[:item][:name],
-    # price: params[:item][:price]
-    # )
-    @item = Item.new item_attributes
+    @item = current_user.items.new item_attributes
 
     if @item.save
       redirect_to item_url(@item)
