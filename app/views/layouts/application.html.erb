@@ -10,15 +10,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body>
+    <%= content_tag :p, notice if notice.present? %>
+    <%= content_tag :p, alert if alert.present? %>
 
     <% if controller.class.module_parent_name == "Admin" %>
       <%= render 'shared/admin_navbar' %>
     <% else %>
       <%= render 'shared/navbar' %>
     <% end %>
-    <%= yield %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
