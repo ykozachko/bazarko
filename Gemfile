@@ -77,3 +77,4 @@ gem 'bootstrap', "~> 5.3.3"
 gem "dartsass-rails"
 
 gem "devise", "~> 4.9"
+gem "devise-i18n"
