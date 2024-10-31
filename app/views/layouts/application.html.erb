@@ -11,6 +11,9 @@
   </head>
 
   <body class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <% if controller.class.module_parent_name == "Admin" %>
       <%= render 'shared/admin_navbar' %>
     <% else %>
