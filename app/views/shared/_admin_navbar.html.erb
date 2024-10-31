@@ -14,6 +14,14 @@
         <li class="nav-item">
           <%= link_to "Caterogies", admin_categories_path, class: "nav-link #{ 'active' if controller_name == 'admin/categories' } " %>
         </li>
+        <li>
+          <% if user_signed_in? %>
+              <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+              
+          <% else %>
+              <%= button_to "Sign in", new_user_session_path %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
