@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: %w[index, show]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user!, only: %i[edit update destroy]
+
   def index
     @items = Item.all
   end
@@ -46,5 +48,12 @@ class ItemsController < ApplicationController
 
   def item_attributes
     params.require(:item).permit(:name, :price, :phone, :category_id)
+  end
+
+  def authorize_user!
+    @item = Item.find(params[:id])
+    unless @item.user == current_user
+      redirect_to items_path, alert: 'You are not authorized to perform this action.'
+    end
   end
 end

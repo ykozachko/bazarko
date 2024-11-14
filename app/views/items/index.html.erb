@@ -2,7 +2,10 @@
   <div class="card-header">
     <div class="d-flex justify-content-between align-items-center">
       <h1 class="cme-40">Items</h1>
-      <h3><%= link_to "Add Item", new_item_path, class: "btn btn-primary" %></h3>
+
+      <% if user_signed_in? %>
+        <h3><%= link_to "Add Item", new_item_path, class: "btn btn-primary" %></h3>
+      <% end %>
     </div>
   </div>
 

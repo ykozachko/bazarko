@@ -17,8 +17,10 @@
         <p><%= @item.price %> €</p>
       </div>
       <div>
-        <p><%= link_to "Edit Item", edit_item_url(@item)%></p>
-        <p><%= link_to "Delete", item_url(@item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+        <% if @item.user == current_user %>
+          <p><%= link_to "Edit Item", edit_item_url(@item)%></p>
+          <p><%= link_to "Delete", item_url(@item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+        <% end %>
       </div>
     </div>
   </div>
