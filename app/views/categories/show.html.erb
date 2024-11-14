@@ -11,10 +11,13 @@
       <div>
         <h2><%= @category.name %></h2>
 
-        <%= render @category.items %>
         <%# @category.items.each do |item| %>
           <%#= render 'items/item', item: item %>
         <%# end %>
+        <%= render @category.items %>
+        <% if @category.items.empty? %>
+          <p class="alert alert-warning">No  items in Category</p>
+        <% end %>
       </div>
     </div>
   </div>
