@@ -20,7 +20,6 @@
           <%= image_tag image.variant(:normal), class: "preview-image" %>
         <% end %>
       </div>
-
       <div>
         <% if @item.user == current_user %>
           <p><%= link_to "Edit Item", edit_item_url(@item)%></p>
@@ -28,5 +27,24 @@
         <% end %>
       </div>
     </div>
+
+    <hr>
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <% @item.images.each_with_index do |image, index| %>
+          <div class="carousel-item <%= 'active' if index == 0 %>">
+            <%= image_tag image, class: "d-block w-100" %>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
   </div>
 </div>

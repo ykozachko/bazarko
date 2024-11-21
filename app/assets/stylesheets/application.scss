@@ -45,3 +45,16 @@ select {
   height: 150px;
   width: auto;
 }
+
+.carousel-item {
+  transition: transform 1s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+#carouselExample {
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+}
