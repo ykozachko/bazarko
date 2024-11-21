@@ -15,25 +15,27 @@
   <%= f.text_field :phone%>
   </p>
 
-  <p>
+  <div>
   <%= f.label :category_id %>
   <%= f.select :category_id, Category.all.map { |c| [c.name, c.id ]} %>
   </p>
+  <hr>
 
-  <p>
+  <div>
     <% if @item.images.attached? %>
       <% @item.images.each do |image| %>
-      <%= image_tag image, alt: "Item Image", class: "preview-image" %>
+        <%= image_tag image, alt: "Item Image", class: "preview-image" %>
+      <% end %>
     <% end %>
-    <% else %>
-      <p></p>
-    <% end %>
-  </p>
+  </div>
+  <br>
 
-  <p>
+  <div>
     <%= f.label :images %>
     <%= f.file_field :images, multiple: true %>
-  </p>
+  </div>
+
+  <br>
 
   <%= f.submit t('.save_changes'), class: "btn btn-primary" %>
 

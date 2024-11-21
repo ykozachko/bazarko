@@ -16,13 +16,12 @@
         <% end%>
         <p><%= @item.price %> €</p>
 
-        <% if @item.images.attached? %>
+        <div >
           <% @item.images.each do |image| %>
-          <%= image_tag image, alt: "Item Image", class: "preview-image" %>
-        <% end %>
-        <% else %>
-          <p>No images available</p>
-        <% end %>
+            <%= image_tag image.variant(:thumb), class: "preview-image" %>
+          <% end %>
+        <div>
+
       </div>
       <div>
         <% if @item.user == current_user %>

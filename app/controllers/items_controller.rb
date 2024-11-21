@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find params[:id]
-    
+
   end
 
   def new
@@ -16,21 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.new item_attributes.except(:images)
-
-    if @item.save
-      images = params[:item][:images]
-
-      if images
-        images.each do |image|
-          @item.images.attach(image)
-        end
-      end
-
-      redirect_to item_url(@item)
-    else
-      render "new", status: :unprocessable_entity
-    end
+    @item = current_user.items.new item_attributes
   end
 
   def edit
