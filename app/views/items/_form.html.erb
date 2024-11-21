@@ -20,6 +20,11 @@
   <%= f.select :category_id, Category.all.map { |c| [c.name, c.id ]} %>
   </p>
 
+  <p>
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
+  </p>
+
   <%= f.submit t('.save_changes'), class: "btn btn-primary" %>
 
 <% end %>

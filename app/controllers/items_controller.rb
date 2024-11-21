@@ -7,16 +7,26 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find params[:id]
+    
   end
 
   def new
     @item = Item.new
+    @item.images.attach(params[:images])
   end
 
   def create
-    @item = current_user.items.new item_attributes
+    @item = current_user.items.new item_attributes.except(:images)
 
     if @item.save
+      images = params[:item][:images]
+
+      if images
+        images.each do |image|
+          @item.images.attach(image)
+        end
+      end
+
       redirect_to item_url(@item)
     else
       render "new", status: :unprocessable_entity
@@ -25,6 +35,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item.images.attach(params[:images])
+
     unless @item.user == current_user
       redirect_to items_path, alert: 'You are not authorized to perform this action.'
     end
@@ -52,6 +64,6 @@ class ItemsController < ApplicationController
   private
 
   def item_attributes
-    params.require(:item).permit(:name, :price, :phone, :category_id)
+    params.require(:item).permit(:name, :price, :phone, :category_id, images: [])
   end
 end

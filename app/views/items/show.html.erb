@@ -15,6 +15,14 @@
           <p>Kategoria: <%= @item.category.name %></p>
         <% end%>
         <p><%= @item.price %> €</p>
+
+        <% if @item.images.attached? %>
+          <% @item.images.each do |image| %>
+          <%= image_tag image, alt: "Item Image", class: "custom-image" %>
+        <% end %>
+        <% else %>
+          <p>No images available</p>
+        <% end %>
       </div>
       <div>
         <% if @item.user == current_user %>
