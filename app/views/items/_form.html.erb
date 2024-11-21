@@ -21,6 +21,16 @@
   </p>
 
   <p>
+    <% if @item.images.attached? %>
+      <% @item.images.each do |image| %>
+      <%= image_tag image, alt: "Item Image", class: "preview-image" %>
+    <% end %>
+    <% else %>
+      <p></p>
+    <% end %>
+  </p>
+
+  <p>
     <%= f.label :images %>
     <%= f.file_field :images, multiple: true %>
   </p>
