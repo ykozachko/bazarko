@@ -4,7 +4,7 @@
 <p>phone: <%= item.phone %></p>
 <% if item.images.attached? %>
   <% item.images.each do |image| %>
-  <%= image_tag image, alt: "Item Image", class: "custom-image" %>
+  <%= image_tag image, alt: "Item Image", class: "preview-image" %>
 <% end %>
 <% else %>
   <p>No images available</p>
