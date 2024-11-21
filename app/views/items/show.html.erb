@@ -16,13 +16,11 @@
         <% end%>
         <p><%= @item.price %> €</p>
 
-        <div >
-          <% @item.images.each do |image| %>
-            <%= image_tag image.variant(:thumb), class: "preview-image" %>
-          <% end %>
-        <div>
-
+        <% @item.images.each do |image| %>
+          <%= image_tag image.variant(:normal), class: "preview-image" %>
+        <% end %>
       </div>
+
       <div>
         <% if @item.user == current_user %>
           <p><%= link_to "Edit Item", edit_item_url(@item)%></p>

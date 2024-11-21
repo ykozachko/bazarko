@@ -3,11 +3,8 @@
 <p>Price: <%= item.price %></p>
 <p>phone: <%= item.phone %></p>
 <div>
-  <% if item.images.attached? %>
-    <% item.images.each do |image| %>
-      <%= image_tag image, alt: "Item Image", class: "preview-image" %>
-    <% end %>
+  <% item.images.each do |image| %>
+    <%= image_tag image, class: "preview-image" if image.representable? %>
   <% end %>
 </div>
 <hr>
-  
