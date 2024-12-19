@@ -1,7 +1,7 @@
 <div class="card card-standard">
   <div class="card-header">
     <div>
-      <p><%= link_to "Back", items_path%></p>
+      <p><%= link_to "Back", items_path %></p>
       <h2 class="cme-40">Item Details</h2>
     </div>
   </div>
@@ -13,38 +13,40 @@
         <p><%= @item.user.email %></p>
         <% if @item.category.present? %>
           <p>Kategoria: <%= @item.category.name %></p>
-        <% end%>
+        <% end %>
         <p><%= @item.price %> €</p>
 
         <% @item.images.each do |image| %>
-          <%= image_tag image.variant(:normal), class: "preview-image" %>
+            <%= image_tag image.variant(:normal), class: "preview-image" %>
         <% end %>
       </div>
       <div>
         <% if @item.user == current_user %>
-          <p><%= link_to "Edit Item", edit_item_url(@item)%></p>
-          <p><%= link_to "Delete", item_url(@item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+          <p><%= link_to "Edit Item", edit_item_url(@item) %></p>
+          <p><%= link_to "Delete", item_url(@item), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></p>
         <% end %>
       </div>
     </div>
 
     <hr>
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <% @item.images.each_with_index do |image, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <%= image_tag image, class: "d-block w-100" %>
-          </div>
-        <% end %>
+    <% if @item.images.attached? %>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% @item.images.each_with_index do |image, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+              <%= image_tag image, class: "d-block w-100" %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-  </div>
+    <% end %>
   </div>
 </div>

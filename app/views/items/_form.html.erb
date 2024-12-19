@@ -22,30 +22,26 @@
   <hr>
 
   <div>
-    <% if item.images.attached? %>
-      <% item.images.each do |image| %>
-        <%= image_tag image, class: "preview-image" %>
-        <%# Remove image %>
-      <% end %>
-    <% end %>
-  </div>
-
-
-  <hr>
-
-  <div>
     <%= f.label :images %>
     <%= f.file_field :images, multiple: true %>
   </div>
 
-  <div>
-    <% item.images.each do |image| %>
-      <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+  <hr>
+
+  <div class="row">
+    <% if item.images.attached? %>
+      <% item.images.each do |image| %>
+        <%= f.hidden_field :images, multiple: true, value: image.signed_id %>
+        <div class="col-3"><%= image_tag image.variant(:normal), class: "preview-image" %>
+        <%= link_to "Delete", item_delete_image_path(@item, image), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></div>
+      <% end %>
     <% end %>
   </div>
 
   <hr>
 
   <%= f.submit t('.save_changes'), class: "btn btn-primary" %>
+
+  <hr>
 
 <% end %>

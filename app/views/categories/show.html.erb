@@ -14,6 +14,8 @@
         <%# @category.items.each do |item| %>
           <%#= render 'items/item', item: item %>
         <%# end %>
+
+        <hr>
         <%= render @category.items %>
         <% if @category.items.empty? %>
           <p class="alert alert-warning">No  items in Category</p>

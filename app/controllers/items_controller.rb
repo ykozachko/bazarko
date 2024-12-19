@@ -47,6 +47,13 @@ class ItemsController < ApplicationController
     redirect_to items_url
   end
 
+  def delete_image
+    @item = Item.find(params[:item_id])
+    image = @item.images.find(params[:id])
+    image.purge
+    redirect_to edit_item_url(@item), notice: "Image deleted successfully."
+  end
+
   private
 
   def item_attributes
